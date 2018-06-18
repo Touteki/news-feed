@@ -27,6 +27,7 @@ static NSInteger const kPageSize = 20;
 - (void)viewDidLoad {
     self.view.backgroundColor = UIColor.whiteColor;
     self.tableData = [NSArray new];
+    
     [self configureTableView];
     [self configureRefreshControl];
     [self fetchNews];
@@ -60,7 +61,7 @@ static NSInteger const kPageSize = 20;
     [self.tableView addSubview:self.refreshControl];
 }
 
-// MARK: - Fetch & Updates
+// MARK: - Fetch & Update
 - (void)fetchNews {
     if (!self.tableData.count) [[ActivityIndicator shared] presentInView:self.view];
     NSUInteger nextPage = (self.tableData.count / kPageSize) + 1;
@@ -99,8 +100,6 @@ static NSInteger const kPageSize = 20;
     SFSafariViewController *safariViewControlller = [[SFSafariViewController alloc] initWithURL:url entersReaderIfAvailable:YES];
     [self presentViewController:safariViewControlller animated:YES completion:nil];
 }
-
-
 
 // MARK: - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

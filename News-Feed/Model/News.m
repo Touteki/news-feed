@@ -14,11 +14,10 @@
 + (void)fetchAppleNewsForPage:(NSUInteger)page withPageSize:(NSUInteger)pageSize completion:(void (^)(NSArray *response, NSString *errorMessage))completion {
     NSString *requestURL = @"https://newsapi.org/v2/everything";
     NSMutableDictionary *params = [NSMutableDictionary new];
-    //params[@"from"] = @"2020-01-01T00:00:00"; //Empty test
     params[@"X-No-Cache"] = @"true";
-    params[@"q"] = @"a";
+    params[@"q"] = @"apple";
     params[@"sortBy"] = @"publishedAt";
-    //params[@"language"] = @"ru";
+    params[@"language"] = @"ru";
     params[@"pagesize"] = @(pageSize).stringValue;
     params[@"page"] = @(page).stringValue;
     
